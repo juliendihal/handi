@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css" integrity="sha256-FjyLCG3re1j4KofUTQQXmaWJw13Jdb7LQvXlkFxTDJI=" crossorigin="anonymous">
+ {% endblock %}
+{% block body %}
+ <div id="calendrier"></div>
+
+
+<script>
+    window.onload = () => {
+        let calendarELT = document.querySelector('#calendrier');
+
+        let calendar = new FullCalendar.Calendar(calendarELT, {
+            navLinks: true,
+            initialView: 'dayGridMonth',
+            locale: 'fr',
+            timeZone : 'Europe/Paris',
+            headerToolbar : {
+                start : 'prev,next today',
+                center : 'title',
+                end : 'dayGridMonth,timeGridWeek'
+            },
+            events: {{ data|raw }},
+
+
+        })
+        calendar.render()
+
+    }
+
+
+
+
+
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js" integrity="sha256-8nl2O4lMNahIAmUnxZprMxJIBiPv+SzhMuYwEuinVM0=" crossorigin="anonymous"></script>
+{% endblock %}

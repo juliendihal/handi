@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -46,14 +48,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $firstname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255 , nullable=true)
      */
     private $handicape;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255 , nullable=true)
      */
     private $etude;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Interet::class, mappedBy="relation")
+     */
+    private $interets;
+
+    public function __construct()
+    {
+        $this->interets = new ArrayCollection();
+    }
+
+
 
     public function getId(): ?int
     {
@@ -191,4 +205,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection|Interet[]
+     */
+    public function getInterets(): Collection
+    {
+        return $this->interets;
+    }
+
+    public function addInteret(Interet $interet): self
+    {
+        if (!$this->interets->contains($interet)) {
+            $this->interets[] = $interet;
+            $interet->addRelation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInteret(Interet $interet): self
+    {
+        if ($this->interets->removeElement($interet)) {
+            $interet->removeRelation($this);
+        }
+
+        return $this;
+    }
+
+
 }

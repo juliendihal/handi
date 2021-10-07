@@ -3,10 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="ae3ac9db-d1af-4d02-82b4-e6afaf24624d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/addUser.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/addUser.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20211005101944.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20211005101944.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20211005133001.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/front/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/front/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Cours.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CoursType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CoursType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/CoursRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,8 +173,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Form" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Form" />
+      <recent name="$PROJECT_DIR$/src/Entity" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -201,6 +215,31 @@
       <workItem from="1633441120158" duration="336000" />
       <workItem from="1633442642089" duration="113000" />
       <workItem from="1633442792887" duration="78000" />
+      <workItem from="1633443107281" duration="243000" />
+      <workItem from="1633443413449" duration="1135000" />
+      <workItem from="1633444592635" duration="652000" />
+      <workItem from="1633445392996" duration="341000" />
+      <workItem from="1633445882137" duration="1481000" />
+      <workItem from="1633505653874" duration="27000" />
+      <workItem from="1633505697665" duration="623000" />
+      <workItem from="1633506393478" duration="5568000" />
+      <workItem from="1633515202395" duration="20000" />
+      <workItem from="1633515447699" duration="593000" />
+      <workItem from="1633516198372" duration="377000" />
+      <workItem from="1633516636068" duration="568000" />
+      <workItem from="1633517280074" duration="1156000" />
+      <workItem from="1633523346528" duration="680000" />
+      <workItem from="1633524419897" duration="2381000" />
+      <workItem from="1633530205011" duration="399000" />
+      <workItem from="1633532138457" duration="86000" />
+      <workItem from="1633532248310" duration="719000" />
+      <workItem from="1633533029409" duration="81000" />
+      <workItem from="1633533149097" duration="222000" />
+      <workItem from="1633533479909" duration="41000" />
+      <workItem from="1633533551603" duration="1020000" />
+      <workItem from="1633540251434" duration="3266000" />
+      <workItem from="1633590733680" duration="138000" />
+      <workItem from="1633590899955" duration="3837000" />
     </task>
     <task id="LOCAL-00001" summary="formulaire + log">
       <created>1633438737832</created>

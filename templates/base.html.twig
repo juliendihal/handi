@@ -9,9 +9,7 @@
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
+
     </head>
 
     <header>
@@ -20,7 +18,9 @@
         </div>
     </header>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+
+        {% endblock %}
     </body>
 <footer>
     <div class="mention-legales">
@@ -36,4 +36,5 @@
         <p>linkedin</p>
     </div>
 </footer>
+
 </html>

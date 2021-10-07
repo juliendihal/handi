@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends AbstractType
+class ProfesseurType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -18,8 +18,6 @@ class UserType extends AbstractType
             ->add('password')
             ->add('name')
             ->add('firstname')
-            ->add('handicape')
-            ->add('etude')
             ->add('submit', SubmitType::class)
         ;
     }

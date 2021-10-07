@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\User;
 
+use App\Form\AeshType;
+use App\Form\ProfesseurType;
 use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,7 +18,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/inscription" , name="inscription")
+     * @Route("/inscription/etudiant" , name="inscription_etudiant")
      *
      */
     public function addUser(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher)
@@ -34,7 +36,7 @@ class SecurityController extends AbstractController
         if ($userForm->isSubmitted() && $userForm->isValid()) {
 
 
-            $user->setRoles(['ROLE_USER']);
+            $user->setRoles(['ROLE_ETUDIANT']);
 
             /* récupère les données envoyées par l'utilisateur*/
             $plainPassword = $userForm->get('password')->getData();
@@ -51,6 +53,87 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('home');
         }
         return $this->render('security/addUser.html.twig', [
+            'userForm'=>$userForm->createView()
+        ]);
+    }
+
+
+    /**
+     * @Route("/inscription/professeur" , name="inscription_professeur")
+     *
+     */
+    public function addProfesseur(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher)
+    {
+        /* création d'une instance d'un user */
+        $user = new User();
+
+        /* récupération de la méthode createForm de l'Abstract Controller*/
+        $userForm = $this->createForm(ProfesseurType::class, $user);
+
+        /* liaison du formulaire aux données, userFrom contient le gabarit et les données entrées dans le formulaire */
+        $userForm->handleRequest($request);
+
+        /* stocke en session un message flash qui sera affiché sur la page suivante */
+        if ($userForm->isSubmitted() && $userForm->isValid()) {
+
+
+            $user->setRoles(['ROLE_PROFESSEUR']);
+
+            /* récupère les données envoyées par l'utilisateur*/
+            $plainPassword = $userForm->get('password')->getData();
+
+            /* on hashe le mot de passe rentré par l'utilisateur */
+            $hashedPassword = $userPasswordHasher->hashPassword($user, $plainPassword);
+
+            $user->setPassword($hashedPassword);
+
+            /* envoi en bdd */
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('security/addProfesseur.html.twig', [
+            'userForm'=>$userForm->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/inscription/aesh" , name="inscription_professeur")
+     *
+     */
+    public function addAesh(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher)
+    {
+        /* création d'une instance d'un user */
+        $user = new User();
+
+        /* récupération de la méthode createForm de l'Abstract Controller*/
+        $userForm = $this->createForm(AeshType::class, $user);
+
+        /* liaison du formulaire aux données, userFrom contient le gabarit et les données entrées dans le formulaire */
+        $userForm->handleRequest($request);
+
+        /* stocke en session un message flash qui sera affiché sur la page suivante */
+        if ($userForm->isSubmitted() && $userForm->isValid()) {
+
+
+            $user->setRoles(['ROLE_AESH']);
+
+            /* récupère les données envoyées par l'utilisateur*/
+            $plainPassword = $userForm->get('password')->getData();
+
+            /* on hashe le mot de passe rentré par l'utilisateur */
+            $hashedPassword = $userPasswordHasher->hashPassword($user, $plainPassword);
+
+            $user->setPassword($hashedPassword);
+
+            /* envoi en bdd */
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('security/addAesh.html.twig', [
             'userForm'=>$userForm->createView()
         ]);
     }

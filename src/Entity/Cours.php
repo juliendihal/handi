@@ -23,14 +23,24 @@ class Cours
     private $libelle;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime")
      */
-    private $horaire;
+    private $start;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $end;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $fichier;
 
     public function getId(): ?int
     {
@@ -49,14 +59,26 @@ class Cours
         return $this;
     }
 
-    public function getHoraire(): ?string
+    public function getStart(): ?\DateTimeInterface
     {
-        return $this->horaire;
+        return $this->start;
     }
 
-    public function setHoraire(string $horaire): self
+    public function setStart(\DateTimeInterface $start): self
     {
-        $this->horaire = $horaire;
+        $this->start = $start;
+
+        return $this;
+    }
+
+    public function getEnd(): ?\DateTimeInterface
+    {
+        return $this->end;
+    }
+
+    public function setEnd(\DateTimeInterface $end): self
+    {
+        $this->end = $end;
 
         return $this;
     }
@@ -69,6 +91,18 @@ class Cours
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getFichier(): ?string
+    {
+        return $this->fichier;
+    }
+
+    public function setFichier(string $fichier): self
+    {
+        $this->fichier = $fichier;
 
         return $this;
     }
